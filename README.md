@@ -1,4 +1,4 @@
-# redstone-typist
+# Redstone Typist
 Redstone Typist is a powerful AI-assisted code generation and modification tool powered by GPT-4. It helps you draft and edit code faster and more efficiently by leveraging GPT-4's extensive knowledge of programming languages and best practices.
 
 ## Features

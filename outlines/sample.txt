@@ -1,0 +1,97 @@
+// Imports with full paths
+import { User } from "../models/user.model";
+import { Authorization, PaymentMethod, PaymentMethodSetupIntent, RequestContext } from "../utils/types/common";
+import * as permissionGuards from "../utils/permissions/guards";
+import * as stripeServices from "../services/thirdparty/stripe/stripe.service";
+import { generateAccessToken } from "../middleware/authorization.middleware";
+import { logAction, logError } from "../utils/logger.util";
+import { UserErrorMessage } from "../utils/enums/errorMessages";
+import { ActionResult } from "../utils/enums/common";
+import { UserSearchQuery } from "../utils/types/models";
+import { Payment } from "models/payment.model";
+
+// Function signatures with parameters, return types, and comments (top-level and body)
+
+/**
+ * Return the user with the given userId, or the user making the request if no userId is provided.
+ * @param userId
+ * @param context
+ * @returns the user with eagerly-loaded fields
+ */
+export async function getUser(userId: number, context: RequestContext): Promise<User> {
+    // Identity guard
+}
+
+/**
+ * Search users by searchQuery with pagination.
+ * @param searchQuery
+ * @param offset
+ * @param limit
+ * @param context
+ * @returns rows of users and count
+ */
+export async function searchUsers(searchQuery: UserSearchQuery, offset: number, limit: number, context: RequestContext): Promise<{ rows: User[]; count: number }> {
+    // Admin guard
+}
+
+/**
+ * Updates the client user and profile with the given userId.
+ * @param clientUserId
+ * @param update
+ * @param context
+ * @returns true if successful
+ */
+export async function updateUser(clientUserId: number, update: User, context: RequestContext): Promise<boolean> {
+    // Identity guard
+}
+
+/**
+ * Get the client's payment methods.
+ * @param userId
+ * @param context
+ * @returns a list of all the client's payment methods
+ */
+export async function getPaymentMethods(userId: number, context: RequestContext): Promise<PaymentMethod[]> {
+    // Identity guard
+}
+
+/**
+ * Create a new payment method setup intent for a client.
+ * @param userId
+ * @param context
+ * @returns the setup intent with the client secret
+ */
+export async function getPaymentMethodSetupIntent(userId: number, context: RequestContext): Promise<PaymentMethodSetupIntent> {
+    // Identity guard
+}
+
+/**
+ * Set a payment method as the default for a client in Stripe.
+ * @param userId
+ * @param paymentMethodId
+ * @param context
+ * @returns true if the payment method was set as the default
+ */
+export async function setDefaultPaymentMethod(userId: number, paymentMethodId: string, context: RequestContext): Promise<boolean> {
+    // Identity guard
+}
+
+/**
+ * Verifies the login code and returns the user if the code is valid.
+ * @param email
+ * @param password
+ * @returns user if successful
+ */
+export async function login(email: string, password: string): Promise<Authorization> {
+}
+
+/**
+ * Registers a new client and sends login code if the phone number is not already associated with an account.
+ * @param firstName
+ * @param lastName
+ * @param email
+ * @param password
+ * @returns true if successful, null if not
+ */
+export async function register(firstName: string, lastName: string, email: string, password: string): Promise<boolean> {
+}

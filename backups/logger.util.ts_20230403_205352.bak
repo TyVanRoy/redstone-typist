@@ -1,0 +1,94 @@
+import { AuditLog } from "../models/auditLog.model";
+import * as winston from "winston";
+import { ActionResult } from "./enums/common";
+
+const options = {
+    file: {
+        level: "info",
+        filename: "logs/app.log",
+        handleExceptions: false,
+        json: true,
+        maxsize: 5242880, // 5MB
+        maxFiles: 5,
+        colorize: false,
+    },
+    console: {
+        level: "debug",
+        handleExceptions: true,
+        json: false,
+        colorize: true,
+    },
+    error: {
+        level: "error",
+        filename: "logs/error.log",
+        handleExceptions: true,
+        json: true,
+        colorize: true,
+    },
+};
+
+// Edit this so that it draws a line with the character you want
+$$$edit;
+// Write a function that draws a line of stars as wide as the terminal
+// Function to draw a line of stars as wide as the terminal
+function drawLineOfStars() {
+    // Get the terminal width
+    const terminalWidth = process.stdout.columns;
+
+    // Create a line of stars as wide as the terminal
+    const starLine = "*".repeat(terminalWidth);
+
+    // Print the line of stars
+    console.log(starLine);
+}
+$$$end;
+
+// Export the drawLineOfStars function
+export { drawLineOfStars };
+
+export const logger = winston.createLogger({
+    levels: winston.config.npm.levels,
+    transports: [
+        new winston.transports.File(options.error),
+        new winston.transports.File(options.file),
+        new winston.transports.Console(options.console),
+    ],
+    exitOnError: false,
+});
+
+export function logInfo(message) {
+    if (
+        process.env.LOGGER_IS_ENABLED &&
+        process.env.LOGGER_IS_ENABLED === "true"
+    ) {
+        logger.info(message);
+    }
+}
+
+export function logError(message, location?) {
+    if (
+        process.env.LOGGER_IS_ENABLED &&
+        process.env.LOGGER_IS_ENABLED === "true"
+    ) {
+        const err: any = {
+            location,
+            message,
+            timestamp: new Date(),
+        };
+        logger.error(err);
+    }
+}
+
+export function logAction(userId: number, action: any, result: string) {
+    if (result === ActionResult.SUCCESS) {
+        logInfo(action);
+    } else {
+        logError(result, action);
+    }
+    const auditLog: any = {
+        userId,
+        action,
+        result,
+    };
+    AuditLog.create(auditLog);
+}

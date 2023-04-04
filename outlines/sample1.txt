@@ -1,0 +1,40 @@
+// Imports with full paths
+import { User } from "../models/user.model";
+import { Authorization, PaymentMethod, PaymentMethodSetupIntent, RequestContext } from "../utils/types/common";
+import * as permissionGuards from "../utils/permissions/guards";
+import * as stripeServices from "../services/thirdparty/stripe/stripe.service";
+import { generateAccessToken } from "../middleware/authorization.middleware";
+import { logAction, logError } from "../utils/logger.util";
+import { UserErrorMessage } from "../utils/enums/errorMessages";
+import { ActionResult } from "../utils/enums/common";
+import { UserSearchQuery } from "../utils/types/models";
+import { Payment } from "models/payment.model";
+
+// Any interfaces or types
+// (already imported from "../utils/types/common")
+
+// Any constants
+// (none)
+
+// Function signatures with parameters, return types, and comments (top-level and body)
+export async function getUser(userId: number, context: RequestContext): Promise<User>;
+
+export async function searchUsers(searchQuery: UserSearchQuery, offset: number, limit: number, context: RequestContext): Promise<{ rows: User[]; count: number }>;
+
+export async function updateUser(clientUserId: number, update: User, context: RequestContext): Promise<boolean>;
+
+export async function getPaymentMethods(userId: number, context: RequestContext): Promise<PaymentMethod[]>;
+
+export async function getPaymentMethodSetupIntent(userId: number, context: RequestContext): Promise<PaymentMethodSetupIntent>;
+
+export async function setDefaultPaymentMethod(userId: number, paymentMethodId: string, context: RequestContext): Promise<boolean>;
+
+export async function login(email: string, password: string): Promise<Authorization>;
+
+export async function register(firstName: string, lastName: string, email: string, password: string): Promise<boolean>;
+
+// Class signatures with functions and field signatures, including comments (top-level and body)
+// (none)
+
+// Anything else that would be needed to extend the code
+// (none)

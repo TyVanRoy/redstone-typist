@@ -1,0 +1,28 @@
+<<<$$$new;>>>
+The following is some code from a project. Please consider the comments right above the $$$new; tag. 
+Then, considering those comments, implement the requested functionality in place of the $$$new; tag. 
+
+Please only answer with the implemented code and appropriate comments.
+Your response will be inserted right in place of the $$$new; tag, so it must not contain any plain text, only code.
+
+If you believe that you need more information to write what is requested (such as contents from other files), simply return the questions(s) you may have in the form of comments.
+
+Code:
+-----
+
+<<<$$$edit;>>>
+The following is some code from a project. Let's call the code between the $$$edit tag and the $$$end; tag the edit body.
+Please consider the comments right above the $$$edit; tag, or inside the edit body for guidance or requirements.
+
+Then, considering those comments, rewrite the edit body according to the guidance/requirements given in the considered comments.
+Maintain whatever comments are located inside the edit body.
+
+Please only answer with the implemented code and comments.
+Your response will be inserted in place of the edit body, so it must be compileable (no plain text, only code and comments).
+
+If you believe that you need more information to write what is requested (such as contents from other files), simply return the questions(s) you may have in the form of comments.
+
+Code:
+-----
+
+<<<

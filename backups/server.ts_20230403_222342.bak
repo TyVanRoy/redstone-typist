@@ -1,0 +1,45 @@
+import express, { Application } from "express";
+import cors from "cors";
+
+import { logError } from "./utils/logger.util";
+import { startServer } from "./api/graphql/index";
+
+// Initialize DB associations
+import "./models/init";
+import { alertMaster } from "./utils/master.util";
+
+$$$new;
+// write a constant that is ascii art of a bear
+
+const app: Application = express();
+const port = process.env.PORT || 7000;
+
+// Body parsing Middleware
+app.use(express.json({ limit: "50mb", type: "application/json" }));
+app.use(express.urlencoded({ limit: "50mb", extended: true }));
+
+app.use(
+    cors({
+        credentials: true,
+        origin: true,
+    })
+);
+
+process
+    .on("unhandledRejection", (reason, p) => {
+        alertMaster("unhandled server rejection");
+        logError(reason, "server.ts/unhandledRejection");
+        console.error(reason, "Unhandled Rejection at Promise", p);
+    })
+    .on("uncaughtException", (err) => {
+        alertMaster("uncaught server exception thrown");
+        logError(err, "server.ts/uncaughtException");
+        process.exit(1);
+    });
+
+// connect with graphql server
+startServer(app);
+
+app.listen(port, () => {
+    console.log(`Server up on http://localhost:${port} 🚀🚀🚀`);
+});

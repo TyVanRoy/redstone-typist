@@ -1,0 +1,6 @@
+$$$new;
+// write a function that sends a message to the master
+
+export function alertMaster(message: string): void {
+    // TODO: Implement this
+}

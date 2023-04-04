@@ -10,14 +10,11 @@ Redstone Typist is a powerful AI-assisted code generation and modification tool 
 ## Installation
 1. Clone the repository:
 
-bash
-Copy code
-git clone https://github.com/yourusername/redstone-typist.git
+    git clone https://github.com/yourusername/redstone-typist.git
 
 2. Navigate to the project directory:
-bash
-Copy code
-cd redstone-typist
+
+    cd redstone-typist
 
 3. Install the required packages:
 
@@ -25,9 +22,7 @@ Copy code
 pip install -r requirements.txt
 Set up your OpenAI API key as an environment variable:
 
-arduino
-Copy code
-export OPENAI_API_KEY="your-api-key"
+    export OPENAI_API_KEY="your-api-key"
 
 ## Usage
 Redstone Typist is designed to be easy to use in your day-to-day development. To get started, simply add the appropriate tags to your code:
@@ -38,15 +33,11 @@ Redstone Typist is designed to be easy to use in your day-to-day development. To
 
 3. If your code requires imports from other files, add the $$$IMPORT tag followed by the file path:
 
-shell
-Copy code
-# $$$IMPORT: path/to/your/file.ts
+    // $$$IMPORT: path/to/your/file.ts
 
 4. Run Redstone Typist on your project:
 
-bash
-Copy code
-python typist.py path/to/your/project
+    python typist.py path/to/your/project
 
 5. Review the output and integrate the suggestions into your code as needed.
 

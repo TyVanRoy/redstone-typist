@@ -4,7 +4,7 @@ Redstone Typist is a powerful AI-assisted code generation and modification tool 
 ## Features
 - Supports new code generation with the **`$$$new`** tag
 - Allows editing existing code with the **`$$$edit`** and **`$$$end`** tags
-- Handles import statements with the **'$$$IMPORT`** tag
+- Handles import statements with the **`$$$IMPORT`** tag
 - Provides a simple interface to integrate with the OpenAI API
 
 ## Installation
@@ -27,11 +27,11 @@ Redstone Typist is a powerful AI-assisted code generation and modification tool 
 ## Usage
 Redstone Typist is designed to be easy to use in your day-to-day development. To get started, simply add the appropriate tags to your code:
 
-1. Add the $$$new tag where you want Redstone Typist to generate new code.
+1. Add the **`$$$new`** tag where you want Redstone Typist to generate new code.
 
-2. Use the $$$edit and $$$end tags to mark the beginning and end of a code block that you want Redstone Typist to edit.
+2. Use the **`$$$edit`** and **`$$$end`** tags to mark the beginning and end of a code block that you want Redstone Typist to edit.
 
-3. If your code requires imports from other files, add the $$$IMPORT tag followed by the file path:
+3. If your code requires imports from other files, add the **`$$$IMPORT`** tag followed by the file path:
 
         // $$$IMPORT: path/to/your/file.ts
 

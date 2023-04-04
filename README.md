@@ -18,9 +18,9 @@ Redstone Typist is a powerful AI-assisted code generation and modification tool 
 
 3. Install the required packages:
 
-Copy code
-pip install -r requirements.txt
-Set up your OpenAI API key as an environment variable:
+        pip install -r requirements.txt
+
+4. Set up your OpenAI API key as an environment variable:
 
         export OPENAI_API_KEY="your-api-key"
 

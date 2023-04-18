@@ -1,8 +1,8 @@
 import openai
 import prompts
-from env import *
+import os
 
-openai.api_key = OPENAI_API_KEY
+openai.api_key = os.environ.get('OPENAI_API_KEY')
 
 
 def get_response_from_messages(messages, model="gpt-4", tokens=256, temperature=0.8):
@@ -20,7 +20,7 @@ def get_response_from_messages(messages, model="gpt-4", tokens=256, temperature=
     return message.strip()
 
 
-def get_response(prompt, system_prompt=None, model="gpt-4", tokens=256, temperature=0.8):
+def get_response(prompt, system_prompt=None, model="gpt-3.5-turbo", tokens=256, temperature=0.8):
     if system_prompt is None:
         system_prompt = prompts.load_prompt("system", "default")
     messages = [
